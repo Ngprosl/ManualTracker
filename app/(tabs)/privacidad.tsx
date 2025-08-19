@@ -251,7 +251,7 @@ export default function PrivacidadScreen() {
             <Mail size={24} color={theme.colors.primary} />
             <View style={styles.contactContent}>
               <Text style={styles.contactTitle}>Delegado de Protección de Datos</Text>
-              <Text style={styles.contactEmail}>privacidad@ngpro.es</Text>
+              <Text style={styles.contactEmail}>info@ngpro.es</Text>
               <Text style={styles.contactDescription}>
                 Para ejercer tus derechos o resolver dudas sobre privacidad
               </Text>

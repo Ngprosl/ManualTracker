@@ -62,10 +62,10 @@ export default function AyudaScreen() {
     {
       icon: ExternalLink,
       title: 'Sitio Web',
-      description: 'www.ngpro.es',
+      description: 'www.tracker.ngpro.es',
       action: 'Visitar',
       color: theme.colors.accent,
-      onPress: () => Linking.openURL('https://www.ngpro.es'),
+      onPress: () => Linking.openURL('https://tracker.ngpro.es/'),
     },
   ];
 

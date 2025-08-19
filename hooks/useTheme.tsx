@@ -67,14 +67,14 @@ let globalSetIsDark: ((value: boolean) => void) | null = null;
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const systemColorScheme = useColorScheme();
   const [isDark, setIsDark] = useState(() => {
-    // Try to get saved preference, fallback to system preference
+    // Try to get saved preference, fallback to dark theme
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('theme-preference');
       if (saved) {
         return saved === 'dark';
       }
     }
-    return systemColorScheme === 'dark';
+    return true; // Default to dark theme
   });
 
   // Set global state

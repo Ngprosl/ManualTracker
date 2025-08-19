@@ -13,9 +13,18 @@ import { funcionalidadesData } from '../../data/funcionalidadesData';
 const AnimatedView = Animated.createAnimatedComponent(View);
 
 export default function FuncionalidadDetailScreen() {
-  const { slug } = useLocalSearchParams();
+  const params = useLocalSearchParams();
+  const slug = params.slug as string;
   const { theme } = useTheme();
   const styles = createStyles(theme);
+
+  // Mapeo de slugs a imágenes locales para casos prácticos
+  const practiceImages: Record<string, any> = {
+    'posicion-gps': require('@/assets/images/posicionGPS.png'),
+    'viajes-paradas': require('@/assets/images/funcionalidadViajesYParadas.png'),
+    'info-meteorologica': require('@/assets/images/funcionalidadClima.png'),
+    'medicion-areas': require('@/assets/images/medicionDeArea.png')
+  };
 
   const funcionalidad = funcionalidadesData.find(f => f.slug === slug);
 
@@ -116,6 +125,20 @@ export default function FuncionalidadDetailScreen() {
           </AnimatedView>
         )}
 
+        {/* Caso Práctico */}
+        {practiceImages[slug] && (
+          <AnimatedView entering={FadeInDown.delay(900)} style={styles.section}>
+            <Text style={styles.sectionTitle}>Caso Práctico</Text>
+            <View style={styles.practiceImageContainer}>
+              <Image
+                source={practiceImages[slug]}
+                style={styles.practiceImage}
+                resizeMode="cover"
+              />
+            </View>
+          </AnimatedView>
+        )}
+
         <View style={styles.bottomPadding} />
       </ScrollView>
 
@@ -125,6 +148,20 @@ export default function FuncionalidadDetailScreen() {
 }
 
 const createStyles = (theme: any) => StyleSheet.create({
+  practiceImageContainer: {
+    marginTop: 16,
+    borderRadius: 16,
+    overflow: 'hidden',
+    backgroundColor: theme.colors.card,
+    aspectRatio: 16 / 9, // mantiene la proporción
+    width: '100%',
+    maxWidth: 800, // 🔥 Limita el ancho en pantallas grandes
+    alignSelf: 'center', // 🔥 Centra el contenedor horizontalmente
+  },
+  practiceImage: {
+    width: '100%',
+    height: '100%',
+  },
   container: {
     flex: 1,
     backgroundColor: theme.colors.background,

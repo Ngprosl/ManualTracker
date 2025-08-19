@@ -1,12 +1,97 @@
-import { MapPin, User, Gauge, Battery, Route, Bluetooth, Download, ChartArea as AreaChart, CloudRain, Clock, Shield, Zap, Target, Settings, Eye, Leaf, Fuel, TrendingDown } from 'lucide-react-native';
+import {
+  MapPin,
+  User,
+  Gauge,
+  Battery,
+  Route,
+  Bluetooth,
+  Download,
+  ChartArea as AreaChart,
+  CloudRain,
+  Clock,
+  Shield,
+  Zap,
+  Target,
+  Settings,
+  Eye,
+  Leaf,
+  Fuel,
+  TrendingDown,
+  Tractor
+} from 'lucide-react-native';
 
-export const funcionalidadesData = [
+interface Feature {
+  icon: any;
+  title: string;
+  description: string;
+}
+
+interface Funcionalidad {
+  slug: string;
+  title: string;
+  subtitle: string;
+  image: string;
+  description: string;
+  features: Feature[];
+  benefits: string[];
+  usage: string;
+  casePractice?: {
+    title: string;
+    image: any;
+  };
+}
+
+export const funcionalidadesData: Funcionalidad[] = [
+  {
+    slug: 'agricultura',
+    title: 'Agricultura',
+    subtitle: 'Gestión de labores agrícolas',
+    image: 'https://images.pexels.com/photos/2933243/pexels-photo-2933243.jpeg?auto=compress&cs=tinysrgb&w=800',
+    description:
+      'Sistema avanzado para la gestión y automatización del cuaderno de campo digital. Registra automáticamente todas las labores realizadas por la maquinaria agrícola, facilitando la elaboración del cuaderno de campo y el cumplimiento normativo.',
+    features: [
+      {
+        icon: Tractor,
+        title: 'Registro Automático',
+        description: 'Captura automática de todas las labores agrícolas realizadas'
+      },
+      {
+        icon: AreaChart,
+        title: 'Cuaderno de Campo',
+        description: 'Generación automática de registros para el cuaderno de campo'
+      },
+      {
+        icon: Clock,
+        title: 'Control de Tiempos',
+        description: 'Registro preciso de tiempos de trabajo en cada parcela'
+      },
+      {
+        icon: Target,
+        title: 'Mapeo de Labores',
+        description: 'Visualización geográfica de las labores realizadas'
+      }
+    ],
+    benefits: [
+      'Automatización del cuaderno de campo digital',
+      'Cumplimiento de normativas agrícolas',
+      'Optimización de recursos y tiempos',
+      'Trazabilidad completa de las labores',
+      'Reducción de errores en el registro'
+    ],
+    usage:
+      'El sistema registra automáticamente los viajes realizados, incluyendo hora de inicio, finalización, duración, distancia recorrida y paradas realizadas. Los supervisores pueden revisar el historial completo y generar reportes detallados por vehículo o conductor.',
+    casePractice: {
+      title: 'Vista de registro de viajes y paradas',
+      image: require('@/assets/images/funcionalidadViajesYParadas.png')
+    }
+  },
   {
     slug: 'ecodriving',
     title: 'EcoDriving',
     subtitle: 'Conducción eficiente y sostenible',
     image: 'https://images.pexels.com/photos/3943882/pexels-photo-3943882.jpeg?auto=compress&cs=tinysrgb&w=800',
-    description: 'El sistema de EcoDriving analiza los patrones de conducción para promover un estilo más eficiente y sostenible, reduciendo el consumo de combustible y las emisiones de CO2 mientras optimiza el rendimiento de los vehículos.',
+    description:
+      'El sistema de EcoDriving analiza los patrones de conducción para promover un estilo más eficiente y sostenible, reduciendo el consumo de combustible y las emisiones de CO2 mientras optimiza el rendimiento de los vehículos.',
     features: [
       {
         icon: Gauge,
@@ -36,7 +121,12 @@ export const funcionalidadesData = [
       'Ahorro en costos de mantenimiento',
       'Mejora en la seguridad de conducción'
     ],
-    usage: 'El sistema monitorea constantemente variables como aceleraciones, frenadas, revoluciones del motor y velocidad de crucero. Proporciona una puntuación de eficiencia para cada conductor y sugiere mejoras específicas. Los gestores de flota pueden establecer objetivos de eficiencia y recibir informes detallados sobre el rendimiento del equipo.'
+    usage:
+      'El sistema monitorea constantemente variables como aceleraciones, frenadas, revoluciones del motor y velocidad de crucero. Proporciona una puntuación de eficiencia para cada conductor y sugiere mejoras específicas. Los gestores de flota pueden establecer objetivos de eficiencia y recibir informes detallados sobre el rendimiento del equipo.',
+    casePractice: {
+      title: 'Vista de datos de conducción eficiente',
+      image: require('@/assets/images/reporteResumen.png')
+    }
   },
   {
     slug: 'posicion-gps',
@@ -73,7 +163,11 @@ export const funcionalidadesData = [
       'Verificación de cumplimiento de rutas planificadas',
       'Historial completo de ubicaciones'
     ],
-    usage: 'La funcionalidad de posición GPS se activa automáticamente cuando el dispositivo está instalado. Puedes ver la ubicación actual en el mapa principal, consultar el historial de posiciones y configurar alertas por ubicación. Es especialmente útil para supervisores que necesitan conocer la ubicación exacta de su maquinaria en tiempo real.'
+    usage: 'La funcionalidad de posición GPS se activa automáticamente cuando el dispositivo está instalado. Puedes ver la ubicación actual en el mapa principal, consultar el historial de posiciones y configurar alertas por ubicación. Es especialmente útil para supervisores que necesitan conocer la ubicación exacta de su maquinaria en tiempo real.',
+    casePractice: {
+      title: 'Vista de posicionamiento GPS en tiempo real',
+      image: require('@/assets/images/posicionGPS.png')
+    }
   },
   {
     slug: 'control-conductor',

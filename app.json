@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "bolt-expo-nativewind",
-    "slug": "bolt-expo-nativewind",
+    "name": "Tracker NGPRO",
+    "slug": "tracker-ngpro",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/icono.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -14,7 +14,11 @@
     "web": {
       "bundler": "metro",
       "output": "single",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/icono.png",
+      "name": "Manual Tracker NGPRO",
+      "shortName": "Manual Tracker NGPRO",
+      "description": "Manual de usuario de Tracker NGPRO",
+      "lang": "es-ES"
     },
     "plugins": ["expo-router", "expo-font", "expo-web-browser"],
     "experiments": {

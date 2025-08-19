@@ -11,6 +11,7 @@ export default function TabLayout() {
       <Tabs
         screenOptions={{
           headerShown: false,
+          title: 'Manual Tracker NGPRO',
           tabBarStyle: {
             backgroundColor: theme.colors.card,
             borderTopColor: theme.colors.border,
