@@ -1,0 +1,68 @@
+{
+  "sections": [
+    {
+      "id": "inicio",
+      "title": "Introducción a Tracker NGPRO",
+      "content": "Tracker NGPRO es una plataforma integral de seguimiento y gestión de flotas diseñada para todo tipo de vehículos y flotas. Permite monitorear en tiempo real la ubicación, estado y rendimiento de vehículos comerciales, maquinaria agrícola, flotas de transporte y cualquier tipo de vehículo.",
+      "subsections": [
+        {
+          "title": "Características principales",
+          "content": "• Seguimiento GPS en tiempo real\n• Gestión de conductores\n• Reportes detallados\n• Acceso multiplataforma\n• Soporte técnico completo"
+        },
+        {
+          "title": "Beneficios",
+          "content": "• Mayor control operativo\n• Optimización de rutas\n• Reducción de costos\n• Mejora en la productividad\n• Seguridad aumentada"
+        }
+      ]
+    },
+    {
+      "id": "acceso",
+      "title": "Formas de Acceso",
+      "content": "Tracker NGPRO está disponible en múltiples plataformas para adaptarse a tus necesidades de trabajo.",
+      "subsections": [
+        {
+          "title": "Navegador Web",
+          "content": "Accede desde cualquier navegador moderno utilizando tu email y contraseña proporcionados por NGPRO."
+        },
+        {
+          "title": "Aplicación Móvil",
+          "content": "Disponible para iOS y Android, optimizada para monitoreo sobre la marcha."
+        },
+        {
+          "title": "Aplicación de Escritorio",
+          "content": "Versión completa para Windows, Mac y Linux con todas las funcionalidades avanzadas."
+        }
+      ]
+    },
+    {
+      "id": "dispositivos",
+      "title": "Dispositivos GPS",
+      "content": "NGPRO utiliza tecnología GPS avanzada para el seguimiento preciso de vehículos.",
+      "subsections": [
+        {
+          "title": "FMC230/FMC234",
+          "content": "Dispositivos GPS estándar con alimentación vehicular, comunicación GSM y Bluetooth integrado."
+        },
+        {
+          "title": "TAT240",
+          "content": "Dispositivo de larga autonomía con batería interna de 3-5 años y comunicación LoRaWAN."
+        }
+      ]
+    },
+    {
+      "id": "reportes",
+      "title": "Sistema de Reportes",
+      "content": "Generación de informes detallados para análisis y toma de decisiones.",
+      "subsections": [
+        {
+          "title": "Tipos de Reportes",
+          "content": "• Reportes de ruta\n• Viajes y paradas\n• Resumen de actividad\n• Gráficas de rendimiento\n• Información climática"
+        },
+        {
+          "title": "Exportación",
+          "content": "Todos los reportes pueden exportarse en PDF, Excel, CSV y KML."
+        }
+      ]
+    }
+  ]
+}
