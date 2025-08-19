@@ -5,7 +5,7 @@ import Animated, { FadeInDown } from 'react-native-reanimated';
 import { HeaderWithDrawer } from '@/components/HeaderWithDrawer';
 import { DownloadButton } from '@/components/DownloadButton';
 import { useTheme } from '@/hooks/useTheme';
-import { MessageCircle, MapPin, User, Gauge, Battery, Route, Bluetooth, Download, ChartArea as AreaChart, CloudRain } from 'lucide-react-native';
+import { MessageCircle, MapPin, User, Gauge, Battery, Route, Bluetooth, Download, ChartArea as AreaChart, CloudRain, Leaf } from 'lucide-react-native';
 import { router } from 'expo-router';
 
 const AnimatedView = Animated.createAnimatedComponent(View);
@@ -14,6 +14,7 @@ export default function InicioScreen() {
   const { theme } = useTheme();
 
   const features = [
+    { icon: Leaf, title: 'EcoDriving', description: 'Conducción eficiente', slug: 'ecodriving' },
     { icon: MapPin, title: 'Posición GPS', description: 'Localización en tiempo real', slug: 'posicion-gps' },
     { icon: User, title: 'Control de Conductor', description: 'Gestión de conductores', slug: 'control-conductor' },
     { icon: Gauge, title: 'Velocidad', description: 'Monitoreo de velocidad', slug: 'velocidad' },

@@ -1,6 +1,43 @@
-import { MapPin, User, Gauge, Battery, Route, Bluetooth, Download, ChartArea as AreaChart, CloudRain, Clock, Shield, Zap, Target, Settings, Eye } from 'lucide-react-native';
+import { MapPin, User, Gauge, Battery, Route, Bluetooth, Download, ChartArea as AreaChart, CloudRain, Clock, Shield, Zap, Target, Settings, Eye, Leaf, Fuel, TrendingDown } from 'lucide-react-native';
 
 export const funcionalidadesData = [
+  {
+    slug: 'ecodriving',
+    title: 'EcoDriving',
+    subtitle: 'Conducción eficiente y sostenible',
+    image: 'https://images.pexels.com/photos/3943882/pexels-photo-3943882.jpeg?auto=compress&cs=tinysrgb&w=800',
+    description: 'El sistema de EcoDriving analiza los patrones de conducción para promover un estilo más eficiente y sostenible, reduciendo el consumo de combustible y las emisiones de CO2 mientras optimiza el rendimiento de los vehículos.',
+    features: [
+      {
+        icon: Gauge,
+        title: 'Análisis de Conducción',
+        description: 'Evaluación continua del estilo de conducción y eficiencia'
+      },
+      {
+        icon: AreaChart,
+        title: 'Métricas de Consumo',
+        description: 'Seguimiento detallado del consumo de combustible y emisiones'
+      },
+      {
+        icon: Target,
+        title: 'Objetivos Personalizados',
+        description: 'Metas de eficiencia adaptadas a cada vehículo y ruta'
+      },
+      {
+        icon: Settings,
+        title: 'Recomendaciones',
+        description: 'Sugerencias en tiempo real para mejorar la eficiencia'
+      }
+    ],
+    benefits: [
+      'Reducción significativa del consumo de combustible',
+      'Disminución de emisiones de CO2',
+      'Mayor vida útil de los vehículos',
+      'Ahorro en costos de mantenimiento',
+      'Mejora en la seguridad de conducción'
+    ],
+    usage: 'El sistema monitorea constantemente variables como aceleraciones, frenadas, revoluciones del motor y velocidad de crucero. Proporciona una puntuación de eficiencia para cada conductor y sugiere mejoras específicas. Los gestores de flota pueden establecer objetivos de eficiencia y recibir informes detallados sobre el rendimiento del equipo.'
+  },
   {
     slug: 'posicion-gps',
     title: 'Posición GPS',
