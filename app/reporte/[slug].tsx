@@ -1,13 +1,11 @@
 import React from 'react';
-import { ScrollView, View, Text, Image, StyleSheet } from 'react-native';
+import { ScrollView, View, Text, Image, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, router } from 'expo-router';
 import Animated, { FadeInDown } from 'react-native-reanimated';
-import { HeaderWithDrawer } from '@/components/HeaderWithDrawer';
 import { DownloadButton } from '@/components/DownloadButton';
 import { useTheme } from '@/hooks/useTheme';
 import { ArrowLeft } from 'lucide-react-native';
-import { TouchableOpacity } from 'react-native';
 import { reportesData } from '../../data/reportesData';
 
 const AnimatedView = Animated.createAnimatedComponent(View);
@@ -71,43 +69,6 @@ export default function ReporteDetailScreen() {
         {reporte.includes && (
           <AnimatedView entering={FadeInDown.delay(300)} style={styles.section}>
             <Text style={styles.sectionTitle}>Información Incluida</Text>
-            
-            {/* Imagen adicional para contexto visual */}
-            {reporte.slug === 'reporte-ruta' && (
-              <View style={styles.contextImageContainer}>
-                <Image
-                  source={{ uri: 'https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg?auto=compress&cs=tinysrgb&w=800' }}
-                  style={styles.contextImage}
-                />
-                <Text style={styles.contextImageCaption}>
-                  Ejemplo de visualización de ruta con trazado GPS completo
-                </Text>
-              </View>
-            )}
-            
-            {reporte.slug === 'viajes-paradas' && (
-              <View style={styles.contextImageContainer}>
-                <Image
-                  source={{ uri: 'https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=800' }}
-                  style={styles.contextImage}
-                />
-                <Text style={styles.contextImageCaption}>
-                  Dashboard de análisis de viajes y paradas detalladas
-                </Text>
-              </View>
-            )}
-            
-            {reporte.slug === 'graficas-rendimiento' && (
-              <View style={styles.contextImageContainer}>
-                <Image
-                  source={{ uri: 'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800' }}
-                  style={styles.contextImage}
-                />
-                <Text style={styles.contextImageCaption}>
-                  Gráficas interactivas de rendimiento y análisis de datos
-                </Text>
-              </View>
-            )}
             <View style={styles.includesContainer}>
               {reporte.includes.map((item, index) => (
                 <View key={index} style={styles.includeItem}>
@@ -167,6 +128,22 @@ export default function ReporteDetailScreen() {
             </View>
           </AnimatedView>
         )}
+
+        {/* Imagen de Contexto al Final */}
+        <AnimatedView entering={FadeInDown.delay(900)} style={styles.section}>
+          {reporte.contextImage && (
+            <View style={styles.contextImageContainer}>
+              <Image
+                source={reporte.contextImage.uri}
+                style={[styles.contextImage, { width: '100%', height: Platform.OS === 'web' ? 400 : 200 }]}
+                resizeMode="contain"
+              />
+              <Text style={styles.contextImageCaption}>
+                {reporte.contextImage.caption}
+              </Text>
+            </View>
+          )}
+        </AnimatedView>
 
         <View style={styles.bottomPadding} />
       </ScrollView>
@@ -377,18 +354,23 @@ const createStyles = (theme: any) => StyleSheet.create({
   },
   contextImageContainer: {
     marginBottom: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     overflow: 'hidden',
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
+    elevation: 5,
+    backgroundColor: theme.colors.card,
+    padding: 16,
+    maxWidth: Platform.OS === 'web' ? 800 : '100%',
+    alignSelf: 'center',
+    width: '100%',
   },
   contextImage: {
     width: '100%',
-    height: 180,
-    resizeMode: 'cover',
+    borderRadius: 12,
+    backgroundColor: theme.colors.background,
   },
   contextImageCaption: {
     fontSize: 12,

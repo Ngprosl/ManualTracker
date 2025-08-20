@@ -144,7 +144,7 @@ export const reportesData: Reporte[] = [
     image: 'https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=800',
     contextImage: {
       uri: require('@/assets/images/reporteResumen.png'),
-      caption: 'Dashboard con métricas consolidadas'
+      caption: 'Dashboard de análisis de viajes y paradas detalladas'
     },
     description: 'Reporte ejecutivo que consolida las métricas más importantes de tu flota en un período específico, ideal para análisis gerencial y toma de decisiones.',
     includes: [

@@ -12,13 +12,15 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Send, X, Bot, User } from 'lucide-react-native';
 import { useTheme } from '@/hooks/useTheme';
-import { chatbotData } from '@/data/chatbotData';
+import { chatbotData, type ChatbotResponse } from '@/data/chatbotData';
 
 interface Message {
   id: string;
   text: string;
   isBot: boolean;
   timestamp: Date;
+  typingText?: string;
+  highlightWords?: string[];
 }
 
 interface ChatBotProps {
@@ -47,23 +49,27 @@ export function ChatBot({ onClose }: ChatBotProps) {
     scrollViewRef.current?.scrollToEnd({ animated: true });
   };
 
-  const findAnswer = (question: string): string => {
+  const findAnswer = (question: string): ChatbotResponse | null => {
     const lowercaseQuestion = question.toLowerCase();
+    let firstMatch: { response: ChatbotResponse; position: number } | null = null;
     
     // Buscar en las respuestas del chatbot
     for (const item of chatbotData) {
-      const keywords = item.keywords.map(k => k.toLowerCase());
-      const hasKeyword = keywords.some(keyword => 
-        lowercaseQuestion.includes(keyword)
-      );
-      
-      if (hasKeyword) {
-        return item.answer;
+      for (const keyword of item.keywords) {
+        const keywordLower = keyword.toLowerCase();
+        const position = lowercaseQuestion.indexOf(keywordLower);
+        
+        // Si encontramos la palabra clave
+        if (position !== -1) {
+          // Si es la primera coincidencia o está antes que la actual
+          if (!firstMatch || position < firstMatch.position) {
+            firstMatch = { response: item, position };
+          }
+        }
       }
     }
 
-    // Si no encuentra respuesta específica
-    return 'No encuentro esa información en el manual o en esta app. ¿Quieres contactar soporte? Puedes hacerlo desde la sección de Ayuda o llamando a nuestro equipo técnico.';
+    return firstMatch ? firstMatch.response : null;
   };
 
   const sendMessage = () => {
@@ -80,14 +86,44 @@ export function ChatBot({ onClose }: ChatBotProps) {
     
     // Simular delay del bot
     setTimeout(() => {
+      const response = findAnswer(inputText.trim());
+      const defaultResponse: ChatbotResponse = {
+        answer: 'No encuentro esa información en el manual o en esta app. ¿Quieres contactar soporte? Puedes hacerlo desde la sección de Ayuda o llamando a nuestro equipo técnico.',
+        keywords: [],
+        typingSpeed: 30,
+        typingDelay: 500
+      };
+      
       const botResponse: Message = {
         id: (Date.now() + 1).toString(),
-        text: findAnswer(inputText.trim()),
+        text: response?.answer || defaultResponse.answer,
         isBot: true,
         timestamp: new Date(),
+        typingText: '',
+        highlightWords: response?.highlightWords || []
       };
       
       setMessages(prev => [...prev, botResponse]);
+
+      // Animación de escritura
+      const speed = response?.typingSpeed || defaultResponse.typingSpeed;
+      const delay = response?.typingDelay || defaultResponse.typingDelay;
+      const text = response?.answer || defaultResponse.answer;
+      
+      setTimeout(() => {
+        let i = 0;
+        const typing = setInterval(() => {
+          setMessages(prev => prev.map(msg => 
+            msg.id === botResponse.id
+              ? { ...msg, typingText: text.slice(0, i + 1) }
+              : msg
+          ));
+          i++;
+          if (i === text.length) {
+            clearInterval(typing);
+          }
+        }, speed);
+      }, delay);
     }, 1000);
 
     setInputText('');
@@ -156,7 +192,7 @@ export function ChatBot({ onClose }: ChatBotProps) {
                   styles.messageText,
                   message.isBot ? styles.botText : styles.userText
                 ]}>
-                  {message.text}
+                  {message.isBot && message.typingText !== undefined ? message.typingText : message.text}
                 </Text>
               </View>
             </View>

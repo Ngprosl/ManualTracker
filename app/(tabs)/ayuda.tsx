@@ -22,7 +22,7 @@ export default function AyudaScreen() {
     },
     {
       question: '¿Qué dispositivos GPS son compatibles?',
-      answer: 'Trabajamos principalmente con dispositivos FMC230, FMC234 y TAT240, todos instalados y configurados por nuestros técnicos.'
+      answer: 'Trabajamos principalmente con dispositivos Teltonika, todos instalados y configurados por nuestros técnicos.'
     },
     {
       question: '¿Con qué frecuencia se actualiza la ubicación?',
@@ -30,7 +30,7 @@ export default function AyudaScreen() {
     },
     {
       question: '¿Puedo exportar los reportes?',
-      answer: 'Sí, todos los reportes pueden exportarse en formato PDF, Excel, CSV y KML para análisis externos.'
+      answer: 'Sí, todos los reportes pueden exportarse en formato PDF, Excel y CSV para análisis externos.'
     },
     {
       question: '¿Funciona sin conexión a internet?',
@@ -49,7 +49,7 @@ export default function AyudaScreen() {
       description: 'Soporte técnico directo',
       action: 'Llamar',
       color: theme.colors.secondary,
-      onPress: () => Linking.openURL('tel:+34900000000'), // Reemplaza con el número real
+      onPress: () => Linking.openURL('tel:+34967035613'), // Reemplaza con el número real
     },
     {
       icon: Mail,

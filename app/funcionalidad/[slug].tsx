@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, View, Text, Image, StyleSheet } from 'react-native';
+import { ScrollView, View, Text, Image, StyleSheet, Platform } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, router } from 'expo-router';
 import Animated, { FadeInDown } from 'react-native-reanimated';
@@ -126,14 +126,14 @@ export default function FuncionalidadDetailScreen() {
         )}
 
         {/* Caso Práctico */}
-        {practiceImages[slug] && (
+        {funcionalidad.casePractice && funcionalidad.casePractice.image && (
           <AnimatedView entering={FadeInDown.delay(900)} style={styles.section}>
             <Text style={styles.sectionTitle}>Caso Práctico</Text>
             <View style={styles.practiceImageContainer}>
               <Image
-                source={practiceImages[slug]}
+                source={funcionalidad.casePractice.image}
                 style={styles.practiceImage}
-                resizeMode="cover"
+                resizeMode="contain"
               />
             </View>
           </AnimatedView>
@@ -149,18 +149,25 @@ export default function FuncionalidadDetailScreen() {
 
 const createStyles = (theme: any) => StyleSheet.create({
   practiceImageContainer: {
-    marginTop: 16,
+    marginBottom: 16,
     borderRadius: 16,
     overflow: 'hidden',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
+    elevation: 5,
     backgroundColor: theme.colors.card,
-    aspectRatio: 16 / 9, // mantiene la proporción
+    padding: 16,
+    maxWidth: Platform.OS === 'web' ? 800 : '100%',
+    alignSelf: 'center',
     width: '100%',
-    maxWidth: 800, // 🔥 Limita el ancho en pantallas grandes
-    alignSelf: 'center', // 🔥 Centra el contenedor horizontalmente
   },
   practiceImage: {
     width: '100%',
-    height: '100%',
+    height: Platform.OS === 'web' ? 400 : 200,
+    borderRadius: 12,
+    backgroundColor: theme.colors.background,
   },
   container: {
     flex: 1,

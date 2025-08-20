@@ -17,7 +17,10 @@ import {
   Leaf,
   Fuel,
   TrendingDown,
-  Tractor
+  Tractor,
+  Bell,
+  Map,
+  AlertCircle
 } from 'lucide-react-native';
 
 interface Feature {
@@ -43,426 +46,403 @@ interface Funcionalidad {
 
 export const funcionalidadesData: Funcionalidad[] = [
   {
-    slug: 'agricultura',
-    title: 'Agricultura',
-    subtitle: 'Gestión de labores agrícolas',
-    image: 'https://images.pexels.com/photos/2933243/pexels-photo-2933243.jpeg?auto=compress&cs=tinysrgb&w=800',
-    description:
-      'Sistema avanzado para la gestión y automatización del cuaderno de campo digital. Registra automáticamente todas las labores realizadas por la maquinaria agrícola, facilitando la elaboración del cuaderno de campo y el cumplimiento normativo.',
-    features: [
-      {
-        icon: Tractor,
-        title: 'Registro Automático',
-        description: 'Captura automática de todas las labores agrícolas realizadas'
-      },
-      {
-        icon: AreaChart,
-        title: 'Cuaderno de Campo',
-        description: 'Generación automática de registros para el cuaderno de campo'
-      },
-      {
-        icon: Clock,
-        title: 'Control de Tiempos',
-        description: 'Registro preciso de tiempos de trabajo en cada parcela'
-      },
-      {
-        icon: Target,
-        title: 'Mapeo de Labores',
-        description: 'Visualización geográfica de las labores realizadas'
-      }
-    ],
-    benefits: [
-      'Automatización del cuaderno de campo digital',
-      'Cumplimiento de normativas agrícolas',
-      'Optimización de recursos y tiempos',
-      'Trazabilidad completa de las labores',
-      'Reducción de errores en el registro'
-    ],
-    usage:
-      'El sistema registra automáticamente los viajes realizados, incluyendo hora de inicio, finalización, duración, distancia recorrida y paradas realizadas. Los supervisores pueden revisar el historial completo y generar reportes detallados por vehículo o conductor.',
-    casePractice: {
-      title: 'Vista de registro de viajes y paradas',
-      image: require('@/assets/images/funcionalidadViajesYParadas.png')
-    }
-  },
-  {
-    slug: 'ecodriving',
-    title: 'EcoDriving',
-    subtitle: 'Conducción eficiente y sostenible',
-    image: 'https://images.pexels.com/photos/3943882/pexels-photo-3943882.jpeg?auto=compress&cs=tinysrgb&w=800',
-    description:
-      'El sistema de EcoDriving analiza los patrones de conducción para promover un estilo más eficiente y sostenible, reduciendo el consumo de combustible y las emisiones de CO2 mientras optimiza el rendimiento de los vehículos.',
-    features: [
-      {
-        icon: Gauge,
-        title: 'Análisis de Conducción',
-        description: 'Evaluación continua del estilo de conducción y eficiencia'
-      },
-      {
-        icon: AreaChart,
-        title: 'Métricas de Consumo',
-        description: 'Seguimiento detallado del consumo de combustible y emisiones'
-      },
-      {
-        icon: Target,
-        title: 'Objetivos Personalizados',
-        description: 'Metas de eficiencia adaptadas a cada vehículo y ruta'
-      },
-      {
-        icon: Settings,
-        title: 'Recomendaciones',
-        description: 'Sugerencias en tiempo real para mejorar la eficiencia'
-      }
-    ],
-    benefits: [
-      'Reducción significativa del consumo de combustible',
-      'Disminución de emisiones de CO2',
-      'Mayor vida útil de los vehículos',
-      'Ahorro en costos de mantenimiento',
-      'Mejora en la seguridad de conducción'
-    ],
-    usage:
-      'El sistema monitorea constantemente variables como aceleraciones, frenadas, revoluciones del motor y velocidad de crucero. Proporciona una puntuación de eficiencia para cada conductor y sugiere mejoras específicas. Los gestores de flota pueden establecer objetivos de eficiencia y recibir informes detallados sobre el rendimiento del equipo.',
-    casePractice: {
-      title: 'Vista de datos de conducción eficiente',
-      image: require('@/assets/images/reporteResumen.png')
-    }
-  },
-  {
     slug: 'posicion-gps',
     title: 'Posición GPS',
-    subtitle: 'Localización precisa en tiempo real',
-    image: 'https://images.pexels.com/photos/355952/pexels-photo-355952.jpeg?auto=compress&cs=tinysrgb&w=800',
-    description: 'El sistema de posicionamiento GPS de Tracker NGPRO proporciona localización precisa y en tiempo real de todos tus vehículos y maquinaria agrícola. Utilizando tecnología GPS avanzada, obtienes coordenadas exactas con una precisión de menos de 2.5 metros.',
+    subtitle: 'Localización en tiempo real',
+    image: 'https://images.pexels.com/photos/697662/pexels-photo-697662.jpeg?auto=compress&cs=tinysrgb&w=800',
+    description: 'Sistema de localización GPS en tiempo real que permite conocer la ubicación exacta de tus vehículos las 24 horas del día.',
     features: [
       {
         icon: MapPin,
-        title: 'Precisión Avanzada',
-        description: 'Localización con precisión menor a 2.5m CEP utilizando múltiples satélites'
+        title: 'Ubicación Precisa',
+        description: 'Localización exacta en tiempo real'
       },
       {
         icon: Clock,
-        title: 'Tiempo Real',
-        description: 'Actualización automática cada minuto durante el movimiento'
-      },
-      {
-        icon: Target,
-        title: 'Coordenadas Exactas',
-        description: 'Latitud y longitud precisas con formato decimal y grados'
+        title: 'Monitoreo 24/7',
+        description: 'Seguimiento continuo día y noche'
       },
       {
         icon: Eye,
-        title: 'Visualización Múltiple',
-        description: 'Vista en mapa satelital, carreteras y híbrida'
+        title: 'Vista en Mapa',
+        description: 'Visualización intuitiva en mapa interactivo'
       }
     ],
     benefits: [
-      'Control total sobre la ubicación de tu flota',
-      'Optimización de rutas y tiempos de desplazamiento',
-      'Recuperación rápida en caso de robo',
-      'Verificación de cumplimiento de rutas planificadas',
-      'Historial completo de ubicaciones'
+      'Control total de la flota en tiempo real',
+      'Mejora en la seguridad de los vehículos',
+      'Optimización de rutas y tiempos',
+      'Respuesta rápida ante emergencias',
+      'Reducción de uso no autorizado'
     ],
-    usage: 'La funcionalidad de posición GPS se activa automáticamente cuando el dispositivo está instalado. Puedes ver la ubicación actual en el mapa principal, consultar el historial de posiciones y configurar alertas por ubicación. Es especialmente útil para supervisores que necesitan conocer la ubicación exacta de su maquinaria en tiempo real.',
+    usage: 'Accede a la plataforma web o móvil para ver la ubicación exacta de tus vehículos en tiempo real sobre un mapa interactivo. Visualiza el histórico de recorridos y recibe alertas de movimientos no autorizados.',
     casePractice: {
-      title: 'Vista de posicionamiento GPS en tiempo real',
-      image: require('@/assets/images/posicionGPS.png')
+      title: 'Visualización en Tiempo Real',
+      image: require('../assets/images/posicionGPS.png')
     }
   },
   {
-    slug: 'control-conductor',
-    title: 'Control de Conductor',
-    subtitle: 'Gestión inteligente de personal',
-    image: 'https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=800',
-    description: 'El sistema de control de conductores permite identificar automáticamente quién está operando cada vehículo mediante tecnología Bluetooth. Cada conductor tiene un tag personal que se detecta automáticamente.',
-    features: [
-      {
-        icon: User,
-        title: 'Identificación Automática',
-        description: 'Detección automática del conductor mediante tags Bluetooth personales'
-      },
-      {
-        icon: Bluetooth,
-        title: 'Tecnología Bluetooth',
-        description: 'Conexión automática sin intervención manual del conductor'
-      },
-      {
-        icon: Clock,
-        title: 'Registro de Tiempos',
-        description: 'Control automático de horarios de trabajo por conductor'
-      },
-      {
-        icon: Settings,
-        title: 'Gestión Personalizada',
-        description: 'Notas y observaciones específicas para cada conductor'
-      }
-    ],
-    benefits: [
-      'Control preciso de horarios de trabajo',
-      'Asignación automática de responsabilidades',
-      'Reportes individuales por conductor',
-      'Mejora en la productividad del personal',
-      'Trazabilidad completa de actividades'
-    ],
-    usage: 'Cada conductor recibe un tag Bluetooth personal que debe llevar consigo. Al acercarse al vehículo, el sistema lo detecta automáticamente y registra el inicio de su turno. Cuando se aleja, registra el fin del turno. Los supervisores pueden ver en tiempo real quién está operando cada máquina y generar reportes de productividad individual.'
-  },
-  {
-    slug: 'velocidad',
-    title: 'Monitoreo de Velocidad',
-    subtitle: 'Control y seguridad en movimiento',
-    image: 'https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=800',
-    description: 'El sistema de monitoreo de velocidad registra y analiza la velocidad de tus vehículos en tiempo real, permitiendo establecer límites de seguridad y generar alertas automáticas por excesos de velocidad.',
-    features: [
-      {
-        icon: Gauge,
-        title: 'Velocidad en Tiempo Real',
-        description: 'Monitoreo continuo de la velocidad actual de cada vehículo'
-      },
-      {
-        icon: Shield,
-        title: 'Límites Configurables',
-        description: 'Establecimiento de límites de velocidad personalizados por vehículo o zona'
-      },
-      {
-        icon: Zap,
-        title: 'Alertas Automáticas',
-        description: 'Notificaciones inmediatas por excesos de velocidad'
-      },
-      {
-        icon: AreaChart,
-        title: 'Análisis Histórico',
-        description: 'Gráficas y reportes de velocidades promedio y máximas'
-      }
-    ],
-    benefits: [
-      'Mayor seguridad en las operaciones',
-      'Reducción de accidentes y daños',
-      'Control del desgaste de maquinaria',
-      'Cumplimiento de normativas de seguridad',
-      'Optimización del consumo de combustible'
-    ],
-    usage: 'Configura límites de velocidad específicos para cada tipo de vehículo o zona de trabajo. El sistema enviará alertas automáticas cuando se superen estos límites. Puedes revisar reportes históricos para identificar patrones de conducción y tomar medidas correctivas. Es especialmente útil para flotas que operan en carreteras públicas o zonas con restricciones de velocidad.'
-  },
-  {
-    slug: 'bateria',
-    title: 'Estado de Batería',
-    subtitle: 'Monitoreo energético inteligente',
-    image: 'https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=800',
-    description: 'El sistema de monitoreo de batería supervisa el estado energético de todos los dispositivos GPS instalados, proporcionando alertas tempranas y gestión inteligente del consumo energético.',
-    features: [
-      {
-        icon: Battery,
-        title: 'Monitoreo Continuo',
-        description: 'Supervisión constante del nivel de batería de todos los dispositivos'
-      },
-      {
-        icon: Zap,
-        title: 'Alertas Tempranas',
-        description: 'Notificaciones automáticas cuando la batería está baja'
-      },
-      {
-        icon: Settings,
-        title: 'Gestión Inteligente',
-        description: 'Optimización automática del consumo según el uso'
-      },
-      {
-        icon: Clock,
-        title: 'Predicción de Vida Útil',
-        description: 'Estimación del tiempo restante de funcionamiento'
-      }
-    ],
-    benefits: [
-      'Prevención de interrupciones del servicio',
-      'Planificación proactiva del mantenimiento',
-      'Maximización de la vida útil de dispositivos',
-      'Reducción de costos operativos',
-      'Continuidad del seguimiento GPS'
-    ],
-    usage: 'Para dispositivos FMC (alimentados por el vehículo), el monitoreo verifica la conexión eléctrica. Para dispositivos TAT240 (batería interna), el sistema predice cuándo necesitarán reemplazo basándose en el patrón de uso. Recibirás alertas con suficiente antelación para programar el mantenimiento sin interrumpir las operaciones.'
-  },
-  {
-    slug: 'viajes-paradas',
+    slug: 'viajes-y-paradas',
     title: 'Viajes y Paradas',
-    subtitle: 'Análisis completo de trayectorias',
-    image: 'https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg?auto=compress&cs=tinysrgb&w=800',
-    description: 'El sistema de análisis de viajes y paradas registra automáticamente todos los desplazamientos y detenciones de tus vehículos, proporcionando información detallada sobre patrones de uso y eficiencia operativa.',
+    subtitle: 'Control detallado de recorridos',
+    image: 'https://images.pexels.com/photos/7433822/pexels-photo-7433822.jpeg?auto=compress&cs=tinysrgb&w=800',
+    description: 'Seguimiento detallado de todos los viajes realizados, incluyendo paradas, tiempos y distancias recorridas.',
     features: [
       {
         icon: Route,
-        title: 'Detección Automática',
-        description: 'Identificación automática de inicio y fin de viajes'
-      },
-      {
-        icon: MapPin,
-        title: 'Ubicación de Paradas',
-        description: 'Registro preciso de todas las ubicaciones de parada'
+        title: 'Historial de Rutas',
+        description: 'Registro completo de recorridos'
       },
       {
         icon: Clock,
-        title: 'Duración Detallada',
-        description: 'Tiempo exacto de cada viaje y parada'
+        title: 'Control de Paradas',
+        description: 'Monitoreo de tiempos de detención'
       },
       {
-        icon: AreaChart,
-        title: 'Análisis de Patrones',
-        description: 'Identificación de rutas frecuentes y patrones de uso'
+        icon: Target,
+        title: 'Análisis de Viajes',
+        description: 'Estadísticas y reportes detallados'
       }
     ],
     benefits: [
-      'Optimización de rutas y tiempos',
-      'Control de productividad operativa',
-      'Identificación de ineficiencias',
-      'Planificación mejorada de actividades',
-      'Reducción de tiempos muertos'
+      'Optimización de rutas y tiempos de entrega',
+      'Control de tiempos de parada',
+      'Mejora en la eficiencia operativa',
+      'Reducción de costos de combustible',
+      'Análisis detallado de recorridos'
     ],
-    usage: 'El sistema detecta automáticamente cuando un vehículo inicia movimiento (viaje) o se detiene por más de un tiempo configurado (parada). Puedes analizar estos datos para optimizar rutas, identificar paradas innecesarias y mejorar la eficiencia operativa. Los reportes incluyen mapas de calor que muestran las zonas más frecuentadas.'
+    usage: 'Visualiza el historial completo de viajes, con información detallada de cada parada, tiempo de conducción y distancia recorrida. Genera reportes personalizados para análisis y optimización.',
+    casePractice: {
+      title: 'Análisis de Rutas',
+      image: require('../assets/images/funcionalidadViajesYParadas.png')
+    }
+  },
+  {
+    slug: 'agricultura',
+    title: 'Agricultura',
+    subtitle: 'Gestión agrícola inteligente',
+    image: 'https://images.pexels.com/photos/2933243/pexels-photo-2933243.jpeg?auto=compress&cs=tinysrgb&w=800',
+    description: 'Herramientas especializadas para la gestión de labores agrícolas, optimización de recursos y control de maquinaria.',
+    features: [
+      {
+        icon: Tractor,
+        title: 'Control de Maquinaria',
+        description: 'Seguimiento de equipos agrícolas'
+      },
+      {
+        icon: Map,
+        title: 'Mapeo de Campos',
+        description: 'Visualización de áreas de trabajo'
+      },
+      {
+        icon: Target,
+        title: 'Gestión de Labores',
+        description: 'Control de trabajos realizados'
+      }
+    ],
+    benefits: [
+      'Optimización de labores agrícolas',
+      'Control preciso de áreas trabajadas',
+      'Mejora en la eficiencia de recursos',
+      'Seguimiento de rendimiento',
+      'Planificación efectiva de tareas'
+    ],
+    usage: 'Monitorea el trabajo de tu maquinaria agrícola, mide áreas trabajadas y gestiona labores de campo de manera eficiente. Obtén datos precisos para la toma de decisiones.'
+  },
+  {
+    slug: 'eco-driving',
+    title: 'EcoDriving',
+    subtitle: 'Conducción eficiente y sostenible',
+    image: 'https://images.pexels.com/photos/3321797/pexels-photo-3321797.jpeg?auto=compress&cs=tinysrgb&w=800',
+    description: 'Sistema de análisis de conducción que promueve hábitos más eficientes y sostenibles al volante.',
+    features: [
+      {
+        icon: Leaf,
+        title: 'Conducción Verde',
+        description: 'Promoción de hábitos sostenibles'
+      },
+      {
+        icon: Fuel,
+        title: 'Ahorro de Combustible',
+        description: 'Optimización de consumo'
+      },
+      {
+        icon: TrendingDown,
+        title: 'Reducción de Emisiones',
+        description: 'Control de impacto ambiental'
+      }
+    ],
+    benefits: [
+      'Reducción de consumo de combustible',
+      'Menor impacto ambiental',
+      'Aumento de vida útil del vehículo',
+      'Mejora en la seguridad',
+      'Ahorro en mantenimiento'
+    ],
+    usage: 'Analiza los patrones de conducción y recibe recomendaciones para una conducción más eficiente. Monitorea el consumo de combustible y las emisiones de CO2.'
+  },
+  {
+    slug: 'geocercas',
+    title: 'Geocercas',
+    subtitle: 'Control de zonas geográficas',
+    image: 'https://images.pexels.com/photos/1792055/pexels-photo-1792055.jpeg?auto=compress&cs=tinysrgb&w=800',
+    description: 'Sistema avanzado de Geocercas que permite definir áreas geográficas virtuales y recibir alertas automáticas cuando los vehículos entran o salen de estas zonas.',
+    features: [
+      {
+        icon: Map,
+        title: 'Creación Intuitiva',
+        description: 'Dibuja geocercas fácilmente sobre el mapa'
+      },
+      {
+        icon: Bell,
+        title: 'Alertas Instantáneas',
+        description: 'Notificaciones de entrada/salida'
+      },
+      {
+        icon: AlertCircle,
+        title: 'Monitoreo 24/7',
+        description: 'Vigilancia continua de límites'
+      }
+    ],
+    benefits: [
+      'Control eficiente de rutas',
+      'Mejora en la seguridad',
+      'Detección de desvíos',
+      'Optimización de respuesta',
+      'Control de zonas restringidas'
+    ],
+    usage: 'Define zonas permitidas o restringidas dibujando áreas en el mapa. Recibe alertas instantáneas cuando los vehículos cruzan estos límites virtuales.'
+  },
+  {
+    slug: 'control-de-conductor',
+    title: 'Control de Conductor',
+    subtitle: 'Gestión de conductores',
+    image: 'https://images.pexels.com/photos/7433832/pexels-photo-7433832.jpeg?auto=compress&cs=tinysrgb&w=800',
+    description: 'Sistema integral para la gestión y monitoreo de conductores, incluyendo identificación, tiempos de conducción y análisis de comportamiento.',
+    features: [
+      {
+        icon: User,
+        title: 'Identificación',
+        description: 'Control de acceso al vehículo'
+      },
+      {
+        icon: Clock,
+        title: 'Tiempos de Conducción',
+        description: 'Monitoreo de horas al volante'
+      },
+      {
+        icon: Shield,
+        title: 'Seguridad',
+        description: 'Control de accesos autorizados'
+      }
+    ],
+    benefits: [
+      'Mayor seguridad en la operación',
+      'Control de tiempos de trabajo',
+      'Mejora en la gestión de personal',
+      'Prevención de uso no autorizado',
+      'Optimización de recursos humanos'
+    ],
+    usage: 'Asigna conductores a vehículos, controla los tiempos de conducción y analiza el comportamiento al volante para mejorar la seguridad y eficiencia.'
+  },
+  {
+    slug: 'velocidad',
+    title: 'Velocidad',
+    subtitle: 'Monitoreo de velocidad',
+    image: 'https://images.pexels.com/photos/3422964/pexels-photo-3422964.jpeg?auto=compress&cs=tinysrgb&w=800',
+    description: 'Control preciso de la velocidad de los vehículos con alertas en tiempo real y análisis de patrones de conducción.',
+    features: [
+      {
+        icon: Gauge,
+        title: 'Monitoreo en Tiempo Real',
+        description: 'Control instantáneo de velocidad'
+      },
+      {
+        icon: Bell,
+        title: 'Alertas de Exceso',
+        description: 'Notificaciones automáticas'
+      },
+      {
+        icon: Target,
+        title: 'Análisis de Patrones',
+        description: 'Estudio de comportamiento'
+      }
+    ],
+    benefits: [
+      'Mayor seguridad vial',
+      'Reducción de infracciones',
+      'Prevención de accidentes',
+      'Control de normativas',
+      'Optimización de seguros'
+    ],
+    usage: 'Configura límites de velocidad personalizados y recibe alertas cuando se excedan. Analiza patrones de velocidad para mejorar la seguridad.'
+  },
+  {
+    slug: 'estado-bateria',
+    title: 'Estado de Batería',
+    subtitle: 'Monitoreo de energía',
+    image: 'https://images.pexels.com/photos/205324/pexels-photo-205324.jpeg?auto=compress&cs=tinysrgb&w=800',
+    description: 'Sistema de monitoreo del estado de la batería del vehículo, incluyendo nivel de carga y alertas de bajo voltaje.',
+    features: [
+      {
+        icon: Battery,
+        title: 'Nivel de Carga',
+        description: 'Monitoreo continuo de batería'
+      },
+      {
+        icon: Zap,
+        title: 'Alertas de Voltaje',
+        description: 'Notificaciones de bajo nivel'
+      },
+      {
+        icon: Clock,
+        title: 'Histórico',
+        description: 'Registro de rendimiento'
+      }
+    ],
+    benefits: [
+      'Prevención de averías',
+      'Mantenimiento preventivo',
+      'Reducción de costos',
+      'Mayor vida útil',
+      'Operación continua'
+    ],
+    usage: 'Monitorea el estado de la batería en tiempo real y recibe alertas preventivas para evitar problemas de arranque y averías.'
   },
   {
     slug: 'deteccion-bluetooth',
     title: 'Detección Bluetooth',
-    subtitle: 'Conectividad inteligente de equipos',
-    image: 'https://images.pexels.com/photos/163064/play-stone-network-networked-interactive-163064.jpeg?auto=compress&cs=tinysrgb&w=800',
-    description: 'La tecnología Bluetooth integrada permite la detección automática de conductores y aperos, creando un ecosistema conectado que registra automáticamente qué equipos están siendo utilizados y por quién.',
+    subtitle: 'Identificación automática',
+    image: 'https://images.pexels.com/photos/5473956/pexels-photo-5473956.jpeg?auto=compress&cs=tinysrgb&w=800',
+    description: 'Sistema de detección automática de conductores y equipos mediante tecnología Bluetooth.',
     features: [
       {
         icon: Bluetooth,
-        title: 'Conectividad Automática',
-        description: 'Detección automática de dispositivos Bluetooth cercanos'
-      },
-      {
-        icon: User,
-        title: 'Identificación de Conductores',
-        description: 'Reconocimiento automático de tags personales de conductores'
-      },
-      {
-        icon: Settings,
-        title: 'Gestión de Aperos',
-        description: 'Detección automática de implementos y herramientas conectadas'
+        title: 'Conexión Automática',
+        description: 'Identificación instantánea'
       },
       {
         icon: Shield,
-        title: 'Seguridad Avanzada',
-        description: 'Alertas por uso no autorizado de equipos'
+        title: 'Seguridad',
+        description: 'Control de accesos'
+      },
+      {
+        icon: Settings,
+        title: 'Configuración',
+        description: 'Gestión de dispositivos'
       }
     ],
     benefits: [
-      'Automatización completa del registro',
-      'Eliminación de errores manuales',
-      'Control de uso de equipos',
-      'Trazabilidad completa de operaciones',
-      'Mejora en la seguridad operativa'
+      'Identificación automática',
+      'Mayor seguridad',
+      'Control de accesos',
+      'Gestión eficiente',
+      'Registro automático'
     ],
-    usage: 'Cada conductor y apero importante tiene un tag Bluetooth único. Cuando se acercan al vehículo principal, se registra automáticamente la conexión. Esto permite saber exactamente qué implemento está usando cada conductor y durante cuánto tiempo, sin necesidad de registro manual.'
+    usage: 'Los dispositivos Bluetooth autorizados son detectados automáticamente, permitiendo identificar conductores y equipos sin intervención manual.'
   },
   {
-    slug: 'exportacion',
+    slug: 'exportacion-datos',
     title: 'Exportación de Datos',
-    subtitle: 'Datos accesibles en múltiples formatos',
+    subtitle: 'Gestión de información',
     image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800',
-    description: 'El sistema de exportación permite descargar todos los datos de seguimiento en múltiples formatos, facilitando el análisis externo, la integración con otros sistemas y el cumplimiento de requisitos de documentación.',
+    description: 'Herramientas para la exportación y análisis de datos de la flota en múltiples formatos.',
     features: [
       {
         icon: Download,
-        title: 'Múltiples Formatos',
-        description: 'Exportación en PDF, Excel, CSV y KML'
-      },
-      {
-        icon: Settings,
-        title: 'Filtros Avanzados',
-        description: 'Selección específica de datos por fecha, vehículo o conductor'
-      },
-      {
-        icon: Clock,
-        title: 'Exportación Programada',
-        description: 'Generación automática de reportes periódicos'
-      },
-      {
-        icon: Shield,
-        title: 'Datos Seguros',
-        description: 'Exportación segura con control de acceso'
-      }
-    ],
-    benefits: [
-      'Integración con sistemas empresariales',
-      'Análisis avanzado en herramientas externas',
-      'Cumplimiento de auditorías',
-      'Respaldo completo de información',
-      'Flexibilidad en el manejo de datos'
-    ],
-    usage: 'Selecciona el período, vehículos y tipo de información que necesitas exportar. El sistema genera archivos en el formato elegido que puedes descargar inmediatamente. Los archivos KML son especialmente útiles para visualizar rutas en Google Earth, mientras que los CSV permiten análisis avanzados en Excel o sistemas ERP.'
-  },
-  {
-    slug: 'medicion-areas',
-    title: 'Medición de Áreas',
-    subtitle: 'Cálculo preciso de superficies trabajadas',
-    image: 'https://images.pexels.com/photos/1595104/pexels-photo-1595104.jpeg?auto=compress&cs=tinysrgb&w=800',
-    description: 'La funcionalidad de medición de áreas calcula automáticamente las superficies trabajadas por la maquinaria agrícola, proporcionando datos precisos en hectáreas y metros cuadrados para optimizar la gestión de cultivos.',
-    features: [
-      {
-        icon: AreaChart,
-        title: 'Cálculo Automático',
-        description: 'Medición automática de áreas trabajadas basada en trayectorias GPS'
+        title: 'Exportación Flexible',
+        description: 'Múltiples formatos disponibles'
       },
       {
         icon: Target,
-        title: 'Precisión GPS',
-        description: 'Cálculos precisos utilizando coordenadas GPS de alta calidad'
+        title: 'Datos Personalizados',
+        description: 'Selección de información'
       },
       {
-        icon: MapPin,
-        title: 'Gestión de Parcelas',
-        description: 'Definición y seguimiento de límites de parcelas específicas'
-      },
-      {
-        icon: AreaChart,
-        title: 'Reportes Detallados',
-        description: 'Informes completos de superficie por parcela y período'
+        icon: Settings,
+        title: 'Automatización',
+        description: 'Informes programados'
       }
     ],
     benefits: [
-      'Control preciso de áreas trabajadas',
-      'Optimización de recursos y tiempo',
-      'Cálculo exacto de costos por hectárea',
-      'Planificación mejorada de cultivos',
-      'Verificación de cumplimiento de contratos'
+      'Análisis detallado',
+      'Reportes personalizados',
+      'Integración con sistemas',
+      'Toma de decisiones',
+      'Control de operaciones'
     ],
-    usage: 'El sistema calcula automáticamente las áreas basándose en las trayectorias GPS de la maquinaria. Puedes definir parcelas específicas y el sistema te mostrará cuánta superficie se ha trabajado en cada una. Es especialmente útil para contratistas agrícolas que necesitan facturar por hectárea trabajada o para agricultores que quieren optimizar el uso de sus campos.'
+    usage: 'Exporta datos en diferentes formatos, programa informes automáticos y analiza la información para optimizar tu operación.'
+  },
+  {
+    slug: 'medicion-de-areas',
+    title: 'Medición de Áreas',
+    subtitle: 'Cálculo de superficies',
+    image: 'https://images.pexels.com/photos/1483880/pexels-photo-1483880.jpeg?auto=compress&cs=tinysrgb&w=800',
+    description: 'Herramienta precisa para la medición y cálculo de áreas de trabajo, especialmente útil en agricultura.',
+    features: [
+      {
+        icon: AreaChart,
+        title: 'Medición Precisa',
+        description: 'Cálculo exacto de superficies'
+      },
+      {
+        icon: Map,
+        title: 'Mapeo Visual',
+        description: 'Visualización de áreas'
+      },
+      {
+        icon: Target,
+        title: 'Análisis',
+        description: 'Estadísticas de cobertura'
+      }
+    ],
+    benefits: [
+      'Planificación precisa',
+      'Optimización de recursos',
+      'Control de trabajos',
+      'Documentación exacta',
+      'Gestión eficiente'
+    ],
+    usage: 'Dibuja y mide áreas directamente en el mapa para calcular superficies de trabajo, planificar tareas y documentar labores realizadas.',
+    casePractice: {
+      title: 'Medición de Campos',
+      image: require('../assets/images/medicionDeArea.png')
+    }
   },
   {
     slug: 'info-meteorologica',
     title: 'Información Meteorológica',
-    subtitle: 'Datos climáticos integrados',
+    subtitle: 'Datos del clima en tiempo real',
     image: 'https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800',
-    description: 'El sistema integra información meteorológica en tiempo real y histórica, correlacionando las condiciones climáticas con las actividades de campo para optimizar la toma de decisiones agrícolas.',
+    description: 'Acceso a información meteorológica precisa y actualizada para la planificación de operaciones.',
     features: [
       {
         icon: CloudRain,
-        title: 'Datos en Tiempo Real',
-        description: 'Información meteorológica actualizada para cada ubicación'
-      },
-      {
-        icon: AreaChart,
-        title: 'Historial Climático',
-        description: 'Registro histórico de condiciones meteorológicas'
+        title: 'Clima en Tiempo Real',
+        description: 'Datos meteorológicos actuales'
       },
       {
         icon: Target,
-        title: 'Correlación con Actividades',
-        description: 'Vinculación de datos climáticos con trabajos realizados'
+        title: 'Pronóstico',
+        description: 'Previsión meteorológica'
       },
       {
-        icon: Zap,
-        title: 'Alertas Meteorológicas',
-        description: 'Notificaciones de condiciones climáticas adversas'
+        icon: Map,
+        title: 'Mapas del Tiempo',
+        description: 'Visualización de condiciones'
       }
     ],
     benefits: [
-      'Planificación óptima de actividades agrícolas',
-      'Prevención de daños por condiciones adversas',
-      'Optimización del uso de recursos',
-      'Mejora en la calidad de cultivos',
-      'Reducción de riesgos operativos'
+      'Planificación efectiva',
+      'Prevención de riesgos',
+      'Optimización de trabajos',
+      'Mejor toma de decisiones',
+      'Operaciones más seguras'
     ],
-    usage: 'La información meteorológica se muestra automáticamente en los reportes de actividad, permitiendo correlacionar el rendimiento de las máquinas con las condiciones climáticas. Puedes usar estos datos para planificar mejor las actividades de campo, evitar trabajar en condiciones adversas y optimizar el uso de fertilizantes y pesticidas según las condiciones meteorológicas.'
+    usage: 'Consulta datos meteorológicos en tiempo real y pronósticos para planificar mejor las operaciones y garantizar la seguridad.',
+    casePractice: {
+      title: 'Monitoreo del Clima',
+      image: require('../assets/images/funcionalidadClima.png')
+    }
   }
 ];

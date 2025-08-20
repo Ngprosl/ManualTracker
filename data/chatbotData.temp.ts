@@ -27,7 +27,7 @@ export const chatbotData: ChatbotResponse[] = [
       'aparato', 'rastreador', 'tracker', 'localizador', 'instalación', 'equipos', 'antena',
       'que dispositivo', 'cual gps', 'que equipo', 'modelos', 'tipos'
     ],
-    answer: '🛰️ **Modelos de Dispositivos NGPRO**\n\n📱 **Serie FMC (Vehículos)**\n• FMC230: Estándar profesional\n• FMC234: Versión avanzada\n• FMC250: Versión avanzada con datos CAN\n• Conexión directa 12V/24V\n• GPS de alta precisión\n• Bluetooth 5.0 integrado\n• Resistencia IP67\n• Consumo ultra bajo\n\n🔋 **Serie TAT (Autónomo)**\n• TAT240: Larga autonomía\n• Batería de 3-5 años\n• Sin instalación compleja\n• Resistencia IP68\n• Conexión LoRaWAN\n• Ideal para remolques\n\n💡 **¿Cuál elegir?**\n• FMC: Para vehículos con batería\n• TAT: Para equipos sin alimentación',
+    answer: '🛰️ **Modelos de Dispositivos NGPRO**\n\n📱 **Serie FMC (Vehículos)**\n• FMC230: Estándar profesional\n• FMC234: Versión avanzada\n• Conexión directa 12V/24V\n• GPS de alta precisión\n• Bluetooth 5.0 integrado\n• Resistencia IP67\n• Consumo ultra bajo\n\n🔋 **Serie TAT (Autónomo)**\n• TAT240: Larga autonomía\n• Batería de 3-5 años\n• Sin instalación compleja\n• Resistencia IP68\n• Conexión LoRaWAN\n• Ideal para remolques\n\n💡 **¿Cuál elegir?**\n• FMC: Para vehículos con batería\n• TAT: Para equipos sin alimentación',
     typingSpeed: 25,
     typingDelay: 300,
     highlightWords: ['FMC230', 'FMC234', 'TAT240', 'Bluetooth', 'LoRaWAN']
@@ -52,7 +52,7 @@ export const chatbotData: ChatbotResponse[] = [
     keywords: [
       'frecuencia', 'actualizar', 'tiempo real', 'minuto', 'actualizacion', 'actualización',
       'cada cuanto', 'intervalo', 'periodicidad', 'refresh', 'recarga', 'datos vivos',
-      'live', 'online', 'directo', 'instantáneo', 'refresco', 'tiempo', 'cada cuanto'
+      'live', 'online', 'directo', 'instantáneo', 'refresco', 'tiempo'
     ],
     answer: '⚡ **Actualizaciones en Tiempo Real**\n\n🚗 **Vehículo en Movimiento**\n• Actualización cada 60 segundos\n• Posición GPS precisa\n• Velocidad actual\n• Dirección de avance\n\n⏸️ **Vehículo Detenido**\n• Actualización cada 5 minutos\n• Ahorro de batería inteligente\n• Detección de movimiento\n\n🔋 **Optimización Automática**\n• Ajuste según actividad\n• Prioridad en alertas\n• Modo ahorro nocturno\n• Balance precisión/consumo\n\n💡 **Personalización**\n• Frecuencias ajustables\n• Modos personalizados\n• Alertas instantáneas',
     typingSpeed: 20,

@@ -98,7 +98,7 @@ export default function ReportesScreen() {
           </View>
           
           <Text style={styles.description}>
-            La app móvil se centra en la información esencial para monitoreo sobre la marcha:
+            La app móvil se centra en la información esencial para monitoreo sobre la marcha, ofreciendo los reportes ya mencionados, pero adaptados al tipo de pantalla:
           </Text>
 
           <View style={styles.mobileCard}>
