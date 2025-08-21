@@ -51,6 +51,16 @@ export default function FuncionalidadesScreen() {
               <Text style={styles.accessDescription}>
                 Accede desde cualquier navegador moderno con tu usuario y contraseña
               </Text>
+              <TouchableOpacity 
+                style={{ marginTop: 8, paddingVertical: 4 }}
+                onPress={() => {
+                  window.open('https://traccar.ngpro.es/', '_blank');
+                }}
+              >
+                <Text style={{ color: theme.colors.primary, fontSize: 14, textDecorationLine: 'underline' }}>
+                  Ir a Tracker Web
+                </Text>
+              </TouchableOpacity>
             </View>
           </View>
 
