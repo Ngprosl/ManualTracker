@@ -12,7 +12,7 @@ export const chatbotData: ChatbotResponse[] = [
     keywords: [
       'acceso', 'acceder', 'login', 'entrar', 'iniciar sesion', 'usuario', 'contraseña', 'credenciales',
       'como entro', 'como accedo', 'donde entro', 'registrarse', 'registro', 'iniciar', 'conectar', 'conectarse',
-      'ingresar', 'ingreso', 'cuenta', 'mi cuenta', 'portal', 'acceso web'
+      'ingresar', 'ingreso', 'cuenta', 'mi cuenta', 'portal', 'acceso web', 'inicio sesión', 'sesion'
     ],
     answer: 'Para acceder a Tracker NGPRO tienes varias opciones:\n\n📱 **App Móvil**\n• Descarga desde App Store o Google Play\n• Ingresa con tu email y contraseña\n• Acceso biométrico disponible\n\n🌐 **Navegador Web**\n• Visita portal.ngpro.es\n• Usa tus credenciales de acceso\n• Compatible con todos los navegadores\n\n💻 **Aplicación de Escritorio**\n• Disponible para Windows, Mac y Linux\n• Instalación sencilla guiada\n• Actualizaciones automáticas\n\n❓ **¿Olvidaste tu contraseña?**\n• Usa la opción "Recuperar contraseña"\n• O contacta con soporte@ngpro.es\n• Respuesta en menos de 4 horas',
     typingSpeed: 30,
@@ -76,11 +76,11 @@ export const chatbotData: ChatbotResponse[] = [
   // INSTALACIÓN
   {
     keywords: [
-      'instalación', 'instalar', 'técnico', 'configurar', 'setup', 'instalacion',
-      'configuracion', 'configuración', 'montar', 'montaje', 'colocar', 'poner',
+      'instalación', 'instalar', 'instalo', 'técnico', 'configurar', 'setup', 'instalacion',
+      'configuracion', 'configuración', 'montar', 'monto', 'montaje', 'colocar', 'poner',
       'conectar', 'preparar', 'implementar', 'implementación', 'servicio', 'empezar'
     ],
-    answer: '🔧 **Instalación Profesional NGPRO**\n\n📋 **Proceso Completo**\n1. Evaluación inicial gratuita\n2. Propuesta personalizada\n3. Agenda de instalación\n4. Visita técnica profesional\n5. Configuración del sistema\n6. Pruebas completas\n7. Capacitación de uso\n\n👨‍🔧 **Servicio Técnico**\n• Personal certificado\n• Herramientas especializadas\n• Garantía de instalación\n• Soporte post-instalación\n\n📱 **Configuración**\n• Cuentas de usuario\n• Apps y accesos\n• Personalización\n• Pruebas en vivo\n\n✅ **Garantías**\n• Material certificado\n• Trabajo profesional\n• Soporte continuo\n• Satisfacción total',
+    answer: '🔧 **Instalación Profesional NGPRO por nuestro personal**\n\n📋 **Proceso Completo**\n1. Evaluación inicial gratuita\n2. Propuesta personalizada\n3. Agenda de instalación\n4. Visita técnica profesional\n5. Configuración del sistema\n6. Pruebas completas\n7. Capacitación de uso\n\n👨‍🔧 **Servicio Técnico**\n• Personal certificado\n• Herramientas especializadas\n• Garantía de instalación\n• Soporte post-instalación\n\n📱 **Configuración**\n• Cuentas de usuario\n• Apps y accesos\n• Personalización\n• Pruebas en vivo\n\n✅ **Garantías**\n• Material certificado\n• Trabajo profesional\n• Soporte continuo\n• Satisfacción total',
     typingSpeed: 30,
     typingDelay: 400,
     highlightWords: ['Proceso Completo', 'Servicio Técnico', 'Configuración', 'Garantías']
