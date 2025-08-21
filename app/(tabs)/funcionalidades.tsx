@@ -75,6 +75,26 @@ export default function FuncionalidadesScreen() {
               <Text style={styles.accessDescription}>
                 Disponible en iOS y Android para monitoreo sobre la marcha
               </Text>
+              <View style={{ flexDirection: 'row', gap: 30, marginTop: 8 }}>
+                <TouchableOpacity onPress={() => {
+                  // Reemplaza el enlace por el de tu app en App Store
+                  window.open('https://apps.apple.com/es/app/trackerngpro/id6746751506', '_blank');
+                }}>
+                  <Image
+                    source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg' }}
+                    style={{ width: 40, height: 40 }}
+                  />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => {
+                  // Reemplaza el enlace por el de tu app en Google Play
+                  window.open('https://play.google.com/store/apps/details?id=com.embarcadero.TrackerNgpro&pcampaignid=web_share', '_blank');
+                }}>
+                  <Image
+                    source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/7/7a/Google_Play_2022_logo.svg' }}
+                    style={{ width: 120, height: 40, resizeMode: 'contain' }}
+                  />
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
         </AnimatedView>
