@@ -10,11 +10,11 @@ export const chatbotData: ChatbotResponse[] = [
   // ACCESO Y LOGIN
   {
     keywords: [
-      'acceso', 'acceder', 'login', 'entrar', 'iniciar sesion', 'usuario', 'contraseña', 'credenciales',
+      'acceso', 'accedo', 'acceder', 'login', 'entrar', 'iniciar sesion', 'usuario', 'contraseña', 'credenciales',
       'como entro', 'como accedo', 'donde entro', 'registrarse', 'registro', 'iniciar', 'conectar', 'conectarse',
       'ingresar', 'ingreso', 'cuenta', 'mi cuenta', 'portal', 'acceso web', 'inicio sesión', 'sesion'
     ],
-    answer: 'Para acceder a Tracker NGPRO tienes varias opciones:\n\n📱 **App Móvil**\n• Descarga desde App Store o Google Play\n• Ingresa con tu email y contraseña\n• Acceso biométrico disponible\n\n🌐 **Navegador Web**\n• Visita portal.ngpro.es\n• Usa tus credenciales de acceso\n• Compatible con todos los navegadores\n\n💻 **Aplicación de Escritorio**\n• Disponible para Windows, Mac y Linux\n• Instalación sencilla guiada\n• Actualizaciones automáticas\n\n❓ **¿Olvidaste tu contraseña?**\n• Usa la opción "Recuperar contraseña"\n• O contacta con soporte@ngpro.es\n• Respuesta en menos de 4 horas',
+    answer: 'Para acceder a Tracker NGPRO tienes varias opciones:\n\n📱 **App Móvil**\n• Descarga desde App Store o Google Play\n• Ingresa con tu email y contraseña\n• Acceso biométrico disponible\n\n🌐 **Navegador Web**\n• Visita https://traccar.ngpro.es/\n• Usa tus credenciales de acceso\n• Compatible con todos los navegadores\n\n💻 **Aplicación de Escritorio**\n• Disponible para Windows, Mac y Linux\n• Instalación sencilla guiada\n• Actualizaciones automáticas\n\n❓ **¿Olvidaste tu contraseña?**\n• Usa la opción "Recuperar contraseña"\n• O contacta con soporte@ngpro.es\n• Respuesta en menos de 4 horas',
     typingSpeed: 30,
     typingDelay: 500,
     highlightWords: ['App Móvil', 'Navegador Web', 'Aplicación de Escritorio']
@@ -76,7 +76,7 @@ export const chatbotData: ChatbotResponse[] = [
   // INSTALACIÓN
   {
     keywords: [
-      'instalación', 'instalar', 'instalo', 'técnico', 'configurar', 'setup', 'instalacion',
+      'instalación', 'montan', 'instalar', 'instalo', 'técnico', 'configurar', 'setup', 'instalacion',
       'configuracion', 'configuración', 'montar', 'monto', 'montaje', 'colocar', 'poner',
       'conectar', 'preparar', 'implementar', 'implementación', 'servicio', 'empezar'
     ],

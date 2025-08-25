@@ -16,7 +16,7 @@ export function DownloadButton() {
   return (
     <TouchableOpacity style={styles.button} onPress={handleDownload}>
       <Download size={20} color="#fff" />
-      <Text style={styles.text}>Descargar Manual PDF</Text>
+      <Text style={styles.text}>Manual PDF</Text>
     </TouchableOpacity>
   );
 }
