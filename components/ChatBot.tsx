@@ -3,6 +3,8 @@ import {
   View, 
   Text, 
   TextInput, 
+  NativeSyntheticEvent,
+  TextInputKeyPressEventData,
   TouchableOpacity, 
   ScrollView, 
   StyleSheet,
@@ -21,6 +23,7 @@ interface Message {
   timestamp: Date;
   typingText?: string;
   highlightWords?: string[];
+  isThinking?: boolean;
 }
 
 interface ChatBotProps {
@@ -40,6 +43,20 @@ export function ChatBot({ onClose }: ChatBotProps) {
   const [inputText, setInputText] = useState('');
   const scrollViewRef = useRef<ScrollView>(null);
   const styles = createStyles(theme);
+  // Reemplaza por la URL pública de tu instancia n8n + path del webhook
+  const N8N_WEBHOOK_URL = 'http://192.168.10.2:3010/webhook/chatbot-docs-qa';
+
+  // Indicador de puntos suspensivos mientras el bot "piensa"
+  const TypingIndicator: React.FC = () => {
+    const [dots, setDots] = useState('');
+    useEffect(() => {
+      const t = setInterval(() => {
+        setDots(prev => (prev.length >= 3 ? '.' : prev + '.'));
+      }, 400);
+      return () => clearInterval(t);
+    }, []);
+    return <Text style={[styles.messageText, styles.botText]}>{dots}</Text>;
+  };
 
   useEffect(() => {
     scrollToBottom();
@@ -72,59 +89,80 @@ export function ChatBot({ onClose }: ChatBotProps) {
     return firstMatch ? firstMatch.response : null;
   };
 
-  const sendMessage = () => {
+  const sendMessage = async () => {
     if (!inputText.trim()) return;
+
+    const question = inputText.trim();
 
     const userMessage: Message = {
       id: Date.now().toString(),
-      text: inputText.trim(),
+      text: question,
       isBot: false,
       timestamp: new Date(),
     };
 
     setMessages(prev => [...prev, userMessage]);
-    
-    // Simular delay del bot
-    setTimeout(() => {
-      const response = findAnswer(inputText.trim());
-      const defaultResponse: ChatbotResponse = {
-        answer: 'No encuentro esa información en el manual o en esta app. ¿Quieres contactar soporte? Puedes hacerlo desde la sección de Ayuda o llamando a nuestro equipo técnico.',
-        keywords: [],
-        typingSpeed: 30,
-        typingDelay: 500
-      };
-      
-      const botResponse: Message = {
-        id: (Date.now() + 1).toString(),
-        text: response?.answer || defaultResponse.answer,
-        isBot: true,
-        timestamp: new Date(),
-        typingText: '',
-        highlightWords: response?.highlightWords || []
-      };
-      
-      setMessages(prev => [...prev, botResponse]);
 
-      // Animación de escritura
-      const speed = response?.typingSpeed || defaultResponse.typingSpeed;
-      const delay = response?.typingDelay || defaultResponse.typingDelay;
-      const text = response?.answer || defaultResponse.answer;
-      
-      setTimeout(() => {
-        let i = 0;
-        const typing = setInterval(() => {
-          setMessages(prev => prev.map(msg => 
-            msg.id === botResponse.id
-              ? { ...msg, typingText: text.slice(0, i + 1) }
-              : msg
-          ));
-          i++;
-          if (i === text.length) {
-            clearInterval(typing);
-          }
-        }, speed);
-      }, delay);
-    }, 1000);
+    // Mostrar typing placeholder del bot
+    const botId = (Date.now() + 1).toString();
+    const placeholderBotMessage: Message = {
+      id: botId,
+      text: '',
+      isBot: true,
+      timestamp: new Date(),
+      typingText: '',
+      isThinking: true,
+    };
+    setMessages(prev => [...prev, placeholderBotMessage]);
+
+    // Intentar enviar la pregunta al webhook n8n. Si falla, usar búsqueda local.
+    let finalAnswer = '';
+    let typingSpeed = 30;
+    let typingDelay = 300;
+
+    try {
+      const res = await fetch(N8N_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question })
+      });
+
+      if (!res.ok) throw new Error(`Webhook error ${res.status}`);
+
+      const data = await res.json();
+      // El workflow n8n devuelve { answer: '...' } según el nodo "Formato Respuesta"
+      finalAnswer = (data && data.answer) ? data.answer : '';
+    } catch (e) {
+      // Fallback local: buscar en `chatbotData`
+      const response = findAnswer(question);
+      finalAnswer = response?.answer || '';
+      typingSpeed = response?.typingSpeed || typingSpeed;
+      typingDelay = response?.typingDelay || typingDelay;
+    }
+
+    if (!finalAnswer) {
+      finalAnswer = 'No encuentro esa información en el manual. Puedes contactar soporte o revisar el PDF del manual.';
+    }
+
+    // Desactivar indicador de "pensando" y empezar animación de escritura
+    setMessages(prev => prev.map(msg => msg.id === botId ? { ...msg, isThinking: false } : msg));
+
+    // Animación de escritura
+    const text = finalAnswer;
+    setTimeout(() => {
+      let i = 0;
+      const typing = setInterval(() => {
+        setMessages(prev => prev.map(msg => 
+          msg.id === botId
+            ? { ...msg, typingText: text.slice(0, i + 1) }
+            : msg
+        ));
+        i++;
+        if (i === text.length) {
+          clearInterval(typing);
+        }
+      }, typingSpeed);
+    }, typingDelay);
 
     setInputText('');
   };
@@ -188,12 +226,15 @@ export function ChatBot({ onClose }: ChatBotProps) {
                 styles.messageBubble,
                 message.isBot ? styles.botBubble : styles.userBubble
               ]}>
-                <Text style={[
-                  styles.messageText,
-                  message.isBot ? styles.botText : styles.userText
-                ]}>
-                  {message.isBot && message.typingText !== undefined ? message.typingText : message.text}
-                </Text>
+                {message.isBot ? (
+                  message.isThinking ? (
+                    <TypingIndicator />
+                  ) : (
+                    <Text style={[styles.messageText, styles.botText]}>{message.typingText !== undefined ? message.typingText : message.text}</Text>
+                  )
+                ) : (
+                  <Text style={[styles.messageText, styles.userText]}>{message.text}</Text>
+                )}
               </View>
             </View>
           </View>
@@ -216,6 +257,15 @@ export function ChatBot({ onClose }: ChatBotProps) {
             maxLength={500}
             onSubmitEditing={sendMessage}
             blurOnSubmit={false}
+            onKeyPress={(e: NativeSyntheticEvent<TextInputKeyPressEventData>) => {
+              // En dispositivos, la tecla Enter suele venir como 'Enter'
+              if (e.nativeEvent.key === 'Enter') {
+                // En multiline, Enter añade salto de línea; enviamos y eliminamos el salto
+                sendMessage();
+                // Quitar el salto de línea añadido (si existe)
+                setTimeout(() => setInputText(prev => prev.replace(/\n$/, '')), 0);
+              }
+            }}
           />
           <TouchableOpacity 
             style={[

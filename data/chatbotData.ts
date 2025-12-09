@@ -1,4 +1,4 @@
-interface ChatbotResponse {
+export interface ChatbotResponse {
   keywords: string[];
   answer: string;
   typingSpeed?: number; // velocidad de escritura en ms por caracter
